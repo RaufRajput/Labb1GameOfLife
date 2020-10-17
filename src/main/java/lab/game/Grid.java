@@ -1,7 +1,6 @@
 package lab.game;
 
-import java.util.ArrayList;
-import java.util.List;
+import static lab.game.Cell.CellState.ALIVE;
 
 public class Grid {
     private Cell[][] cells;
@@ -36,6 +35,18 @@ public class Grid {
     }
 
     public int getAliveCount() {
-        return 3;
+        int count = 0;
+        for (int row = 0; row < cells.length; row++) {
+            for (int col = 0; col < cells[row].length; col++) {
+                if (isCellAlive(cells[row][col])) {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+
+    private boolean isCellAlive(Cell cell) {
+        return cell.getCellSate() == ALIVE;
     }
 }
