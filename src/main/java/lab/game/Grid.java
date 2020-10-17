@@ -35,23 +35,4 @@ public class Grid {
         return cells;
     }
 
-    public List<Coordinate> getNeigbours(Coordinate inputCellCoordinate) {
-        List<Coordinate> neighbours = new ArrayList<>();
-        int lastRowIndex = cells.length - 1;
-        int lastColumnIndex = cells[0].length -1;
-        int row = inputCellCoordinate.getRow();
-        int col = inputCellCoordinate.getCol();
-        for (int xOffset = -1; xOffset < 2; xOffset++) {
-            for (int yOffset = -1; yOffset < 2; yOffset++) {
-                int newRow = row + yOffset;
-                int newCol = col + xOffset;
-                if ((xOffset != 0 || yOffset != 0) && (newRow >-1 && newCol > -1) && (newRow <= lastRowIndex && newCol <=lastColumnIndex )) {
-                    neighbours.add(new Coordinate(newRow, newCol));
-                }
-            }
-        }
-
-        return neighbours;
-
-    }
 }

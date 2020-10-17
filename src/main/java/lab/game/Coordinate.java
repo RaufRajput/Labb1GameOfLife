@@ -1,5 +1,8 @@
 package lab.game;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Coordinate {
     private int row;
     private int col;
@@ -23,6 +26,27 @@ public class Coordinate {
 
     public void setCol(int col) {
         this.col = col;
+    }
+
+    public List<Coordinate> getNeighbours(Grid grid) {
+        List<Coordinate> neighbours = new ArrayList<>();
+        Cell[][] cells = grid.getCells();
+        int lastRowIndex = cells.length - 1;
+        int lastColumnIndex = cells[0].length -1;
+        int row = this.getRow();
+        int col = this.getCol();
+        for (int xOffset = -1; xOffset < 2; xOffset++) {
+            for (int yOffset = -1; yOffset < 2; yOffset++) {
+                int newRow = row + yOffset;
+                int newCol = col + xOffset;
+                if ((xOffset != 0 || yOffset != 0) && (newRow >-1 && newCol > -1) && (newRow <= lastRowIndex && newCol <=lastColumnIndex )) {
+                    neighbours.add(new Coordinate(newRow, newCol));
+                }
+            }
+        }
+
+        return neighbours;
+
     }
 
     @Override
