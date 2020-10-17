@@ -71,4 +71,25 @@ public class GridTest {
         int aliveCountOf = grid.getAliveCountOf(neighbours);
         assertThat(aliveCountOf).isEqualTo(expectedNumberOfAliveNeigbours);
     }
+
+    @Test
+    public void should_be_able_to_get_next_generation() {
+        Cell.CellState[][] input = new Cell.CellState[][]{
+                {O, O, O, O, O, O, O, O},
+                {O, O, O, O, X, O, O, O},
+                {O, O, O, X, X, O, O, O},
+                {O, O, O, O, O, O, O, O}
+        };
+        Grid grid = new Grid(input);
+
+        Cell.CellState[][] expectedGeneration = new Cell.CellState[][]{
+                {O, O, O, O, O, O, O, O},
+                {O, O, O, X, X, O, O, O},
+                {O, O, O, X, X, O, O, O},
+                {O, O, O, O, O, O, O, O}
+        };
+
+        grid.getNextGeneration();
+        assertThat(grid.getCellsState()).isEqualTo(expectedGeneration);
+    }
 }

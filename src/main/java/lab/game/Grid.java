@@ -61,4 +61,8 @@ public class Grid {
         }
         return count;
     }
+
+    public void getNextGeneration() {
+
+    }
 }
