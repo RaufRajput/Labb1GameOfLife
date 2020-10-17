@@ -92,4 +92,25 @@ public class GridTest {
         Grid nextGeneration = grid.getNextGeneration();
         assertThat(nextGeneration.getCellsState()).isEqualTo(expectedGeneration);
     }
+
+    @Test
+    public void should_have_alive_cells_on_edge() {
+        Cell.CellState[][] input = new Cell.CellState[][]{
+                {X, O, O, O, O, O, X, X},
+                {O, X, O, O, X, O, X, O},
+                {O, O, O, X, X, O, X, O},
+                {O, X, O, O, O, O, X, O}
+        };
+        Grid grid = new Grid(input);
+
+        Cell.CellState[][] expectedGeneration = new Cell.CellState[][]{
+                {O, O, O, O, O, X, X, X},
+                {O, O, O, X, O, O, O, X},
+                {O, O, X, X, X, X, X, X},
+                {O, O, O, X, O, O, X, X}
+        };
+
+        Grid nextGeneration = grid.getNextGeneration();
+        assertThat(nextGeneration.getCellsState()).isEqualTo(expectedGeneration);
+    }
 }
