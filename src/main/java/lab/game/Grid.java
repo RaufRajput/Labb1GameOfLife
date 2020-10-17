@@ -3,7 +3,7 @@ package lab.game;
 import java.util.ArrayList;
 import java.util.List;
 
-class Grid {
+public class Grid {
     private Cell[][] state;
 
     public Grid(Cell.CellState[][] input) {
@@ -26,8 +26,11 @@ class Grid {
         }
         return cellStates;
     }
+    public int getStateSize(){
+        return state.length;
+    }
 
-    public List<Integer[][]> getNeighboursFor(Integer[][] inputCellCordinate, Grid grid) {
+    public List<Cordinate> getNeighboursFor(Cordinate inputCellCordinate, Grid grid) {
         return new ArrayList<>();
     }
 }

@@ -41,16 +41,16 @@ public class GridTest {
                 {O, O, O, O, O, O, O, O}
         };
         Grid grid = new Grid(input);
-        List<Integer[][]> expectedNeigbours = new ArrayList<>();
-        expectedNeigbours.add(new Integer[0][2]);
-        expectedNeigbours.add(new Integer[0][3]);
-        expectedNeigbours.add(new Integer[0][4]);
-        expectedNeigbours.add(new Integer[1][2]);
-        expectedNeigbours.add(new Integer[1][4]);
-        expectedNeigbours.add(new Integer[2][2]);
-        expectedNeigbours.add(new Integer[2][3]);
-        expectedNeigbours.add(new Integer[2][4]);
-        List<Integer[][]> actualNeighbours = grid.getNeighboursFor(new Integer[1][3], grid);
+        List<Cordinate> expectedNeigbours = new ArrayList<>();
+        expectedNeigbours.add(new Cordinate(0,2));
+        expectedNeigbours.add(new Cordinate(0,3));
+        expectedNeigbours.add(new Cordinate(0,4));
+        expectedNeigbours.add(new Cordinate(1,2));
+        expectedNeigbours.add(new Cordinate(1,4));
+        expectedNeigbours.add(new Cordinate(2,2));
+        expectedNeigbours.add(new Cordinate(2,3));
+        expectedNeigbours.add(new Cordinate(2,4));
+        List<Cordinate> actualNeighbours = grid.getNeighboursFor(new Cordinate(1,3), grid);
         assertThat(actualNeighbours).isEqualTo(expectedNeigbours);
     }
 }
