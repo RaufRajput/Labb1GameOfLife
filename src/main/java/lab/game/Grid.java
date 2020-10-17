@@ -4,33 +4,51 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Grid {
-    private Cell[][] state;
+    private Cell[][] cells;
 
     public Grid(Cell.CellState[][] input) {
-        state = new Cell[input.length][];
+        cells = new Cell[input.length][];
         for (int row = 0; row < input.length; row++) {
-            state[row] = new Cell[input[row].length];
+            cells[row] = new Cell[input[row].length];
             for (int col = 0; col < input[row].length; col++) {
-                state[row][col] = new Cell(input[row][col]);
+                cells[row][col] = new Cell(input[row][col]);
             }
         }
     }
 
-    public Cell.CellState[][] getState() {
-        Cell.CellState[][] cellStates = new Cell.CellState[state.length][];
-        for (int row = 0; row < state.length; row++) {
-            cellStates[row] = new Cell.CellState[state[row].length];
-            for (int col = 0; col < state[row].length; col++) {
-                cellStates[row][col] = state[row][col].getCellSate();
+    public Cell.CellState[][] getCellsState() {
+        Cell.CellState[][] cellStates = new Cell.CellState[cells.length][];
+        for (int row = 0; row < cells.length; row++) {
+            cellStates[row] = new Cell.CellState[cells[row].length];
+            for (int col = 0; col < cells[row].length; col++) {
+                cellStates[row][col] = cells[row][col].getCellSate();
             }
         }
         return cellStates;
     }
-    public int getStateSize(){
-        return state.length;
+
+    public int getStateSize() {
+        return cells.length;
     }
 
-    public List<Cordinate> getNeighboursFor(Cordinate inputCellCordinate, Grid grid) {
-        return new ArrayList<>();
+    public Cell[][] getCells() {
+        return cells;
+    }
+
+    public List<Cordinate> getNeigbours(Cordinate inputCellCordinate, Grid grid) {
+        int lastIndex = grid.getStateSize() - 1;
+        List<Cordinate> neighbours = new ArrayList<>();
+        int row = inputCellCordinate.getRow();
+        int col = inputCellCordinate.getCol();
+        for (int xOffset = -1; xOffset < 2; xOffset++) {
+            for (int yOffset = -1; yOffset < 2; yOffset++) {
+                if (xOffset != 0 || yOffset != 0) {
+                    neighbours.add(new Cordinate(row + yOffset, col + xOffset));
+                }
+            }
+        }
+
+        return neighbours;
+
     }
 }

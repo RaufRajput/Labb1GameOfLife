@@ -24,4 +24,22 @@ public class Cordinate {
     public void setCol(int col) {
         this.col = col;
     }
+
+    @Override
+    public int hashCode() {
+        int result;
+        result = row / 11;
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+
+        Cordinate that = (Cordinate) obj;
+
+        if (row != that.row) return false;
+        return col == that.col;
+    }
 }
