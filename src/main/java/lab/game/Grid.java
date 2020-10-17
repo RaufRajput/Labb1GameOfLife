@@ -53,6 +53,12 @@ public class Grid {
     }
 
     public int getAliveCountOf(List<Coordinate> neighbours) {
-    return 0;
+        int count = 0;
+        for (Coordinate coordinate : neighbours) {
+            if (isCellAlive(cells[coordinate.getRow()][coordinate.getCol()])) {
+                count++;
+            }
+        }
+        return count;
     }
 }
