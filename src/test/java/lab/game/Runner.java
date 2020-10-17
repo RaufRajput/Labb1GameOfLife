@@ -12,7 +12,7 @@ public class Runner {
     public static final Cell.CellState O = DEAD;
 
     public static void main(String[] args) throws IOException {
-        StringBuilder stringBuilder = new StringBuilder();
+        StringBuilder output = new StringBuilder();
         Cell.CellState[][] input = new Cell.CellState[][]{
                 {X, O, O, O, O, O, X, X},
                 {O, X, O, O, X, O, X, O},
@@ -20,13 +20,24 @@ public class Runner {
                 {O, X, O, O, O, O, X, O}
         };
         Grid grid = new Grid(input);
-        stringBuilder.append("---------------------").append("GENERATION[0]").append("---------------------").append("\n").append(grid);
-        ;
-        for (int i = 1; i < 5; i++) {
+        output
+                .append("---------------------")
+                .append("GENERATION[0]")
+                .append("---------------------")
+                .append("\n")
+                .append(grid);
+
+        int numberOfGeneration = 5;
+        for (int i = 1; i < numberOfGeneration; i++) {
             grid = grid.getNextGeneration();
-            stringBuilder.append("---------------------").append("GENERATION[").append(i).append("]").append("---------------------").append("\n").append(grid);
+            output
+                    .append("---------------------")
+                    .append("GENERATION[").append(i).append("]")
+                    .append("---------------------")
+                    .append("\n")
+                    .append(grid);
         }
-        Files.write(Paths.get("output.txt"), stringBuilder.toString().getBytes());
+        Files.write(Paths.get("output.txt"), output.toString().getBytes());
     }
 }
 
