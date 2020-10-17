@@ -16,11 +16,17 @@ public class Cell {
     }
 
     public void getCellNextStateHavingAliveNeighbours(int numberOfAliveNeigbours) {
-        if (numberOfAliveNeigbours == 2 || numberOfAliveNeigbours == 3 ) {
+        if (cellSate == DEAD && numberOfAliveNeigbours == 3) {
+            cellSate = ALIVE;
+        } else if (!isCellHasOverPopulatedORUnderPopulatedNeighbourHood(numberOfAliveNeigbours)) {
             cellSate = ALIVE;
         } else {
             cellSate = DEAD;
         }
+    }
+
+    private boolean isCellHasOverPopulatedORUnderPopulatedNeighbourHood(int numberOfAliveNeigbours) {
+        return numberOfAliveNeigbours != 2 && numberOfAliveNeigbours != 3;
     }
 
     public enum CellState {ALIVE, DEAD}
