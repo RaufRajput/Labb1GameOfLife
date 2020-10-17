@@ -85,3 +85,4 @@ public class CoordinateTest {
         assertThat(new Coordinate(3, 6)).isIn(expectedNeigbours);
     }
 }
+
