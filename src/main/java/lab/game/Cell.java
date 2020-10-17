@@ -16,7 +16,7 @@ public class Cell {
     }
 
     public void getCellNextStateHavingAliveNeighbours(int numberOfAliveNeigbours) {
-        if (isReproductionPossible(numberOfAliveNeigbours) || !isCellHasOverPopulatedORUnderPopulatedNeighbourHood(numberOfAliveNeigbours)) {
+        if (isReproductionPossible(numberOfAliveNeigbours) || (!isCellHasOverPopulatedORUnderPopulatedNeighbourHood(numberOfAliveNeigbours) && cellSate == ALIVE)) {
             cellSate = ALIVE;
         } else {
             cellSate = DEAD;

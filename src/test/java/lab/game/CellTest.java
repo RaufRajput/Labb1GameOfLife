@@ -61,10 +61,28 @@ public class CellTest {
 
     @Test
     //Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
-    public void should_be_alive_by_reproductin_when_dead_cell_has_three_alive_neighbours() {
+    public void should_be_alive_by_reproduction_when_dead_cell_has_three_alive_neighbours() {
         Cell cell = new Cell(DEAD);
         int numberOfAliveNeigbours = 3;
         cell.getCellNextStateHavingAliveNeighbours(numberOfAliveNeigbours);
         assertThat(cell.getCellSate()).isEqualTo(ALIVE);
     }
+
+    @Test
+    //Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
+    public void should_be_still_dead_when_dead_cell_has_more_than_three_alive_neighbours() {
+        Cell cell = new Cell(DEAD);
+        int numberOfAliveNeigbours = 4;
+        cell.getCellNextStateHavingAliveNeighbours(numberOfAliveNeigbours);
+        assertThat(cell.getCellSate()).isEqualTo(DEAD);
+    }
+    @Test
+    //Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
+    public void should_be_still_dead_when_dead_cell_has_less_than_three_alive_neighbours() {
+        Cell cell = new Cell(DEAD);
+        int numberOfAliveNeigbours = 2;
+        cell.getCellNextStateHavingAliveNeighbours(numberOfAliveNeigbours);
+        assertThat(cell.getCellSate()).isEqualTo(DEAD);
+    }
+
 }
