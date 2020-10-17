@@ -41,8 +41,10 @@ public class Grid {
         int col = inputCellCoordinate.getCol();
         for (int xOffset = -1; xOffset < 2; xOffset++) {
             for (int yOffset = -1; yOffset < 2; yOffset++) {
-                if (xOffset != 0 || yOffset != 0) {
-                    neighbours.add(new Coordinate(row + yOffset, col + xOffset));
+                int newRow = row + yOffset;
+                int newCol = col + xOffset;
+                if ((xOffset != 0 || yOffset != 0) && (newRow >-1 && newCol > -1)) {
+                    neighbours.add(new Coordinate(newRow, newCol));
                 }
             }
         }

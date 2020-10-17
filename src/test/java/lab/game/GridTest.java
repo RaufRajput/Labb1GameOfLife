@@ -62,4 +62,25 @@ public class GridTest {
         assertThat(new Coordinate(2, 3)).isIn(expectedNeigbours);
         assertThat(new Coordinate(2, 4)).isIn(expectedNeigbours);
     }
+
+    @Test
+    public void should_be_able_to_get_neighbours_for_first_cell() {
+        Cell.CellState[][] input = new Cell.CellState[][]{
+                {O, O, O, O, O, O, O, O},
+                {O, O, O, O, X, O, O, O},
+                {O, O, O, X, X, O, O, O},
+                {O, O, O, O, O, O, O, O}
+        };
+        Grid grid = new Grid(input);
+        List<Coordinate> expectedNeigbours = new ArrayList<>();
+        expectedNeigbours.add(new Coordinate(0, 1));
+        expectedNeigbours.add(new Coordinate(1, 0));
+        expectedNeigbours.add(new Coordinate(1, 1));
+
+        List<Coordinate> actualNeighbours = grid.getNeigbours(new Coordinate(0, 0));
+        assertThat(actualNeighbours).hasSameSizeAs(expectedNeigbours);
+        assertThat(new Coordinate(0, 1)).isIn(expectedNeigbours);
+        assertThat(new Coordinate(1, 0)).isIn(expectedNeigbours);
+        assertThat(new Coordinate(1, 1)).isIn(expectedNeigbours);
+    }
 }
