@@ -1,6 +1,7 @@
 package lab.game;
 
 
+import static lab.game.Cell.CellState.ALIVE;
 import static lab.game.Cell.CellState.DEAD;
 
 public class Cell {
@@ -15,7 +16,11 @@ public class Cell {
     }
 
     public void getCellNextStateHavingAliveNeighbours(int numberOfAliveNeigbours) {
-        cellSate = DEAD;
+        if (numberOfAliveNeigbours >= 2) {
+            cellSate = ALIVE;
+        } else {
+            cellSate = DEAD;
+        }
     }
 
     public enum CellState {ALIVE, DEAD}
