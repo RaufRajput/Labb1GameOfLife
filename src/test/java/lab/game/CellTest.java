@@ -31,4 +31,14 @@ public class CellTest {
         cell.getCellNextStateHavingAliveNeighbours(numberOfAliveNeigbours);
         assertThat(cell.getCellSate()).isEqualTo(DEAD);
     }
+
+    @Test
+    //Any live cell with fewer than two live neighbours dies, as if by underpopulation.
+    public void should_be_alive_when_live_cell_has_greater_than_two_alive_neighbours() {
+        Cell cell = new Cell(ALIVE);
+        int numberOfAliveNeigbours = 2;
+        cell.getCellNextStateHavingAliveNeighbours(numberOfAliveNeigbours);
+        assertThat(cell.getCellSate()).isEqualTo(ALIVE);
+    }
+
 }
