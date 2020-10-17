@@ -1,5 +1,8 @@
 package lab.game;
 
+import java.util.ArrayList;
+import java.util.List;
+
 class Grid {
     private Cell[][] state;
 
@@ -22,5 +25,9 @@ class Grid {
             }
         }
         return cellStates;
+    }
+
+    public List<Integer[][]> getNeighboursFor(Integer[][] inputCellCordinate, Grid grid) {
+        return new ArrayList<>();
     }
 }
