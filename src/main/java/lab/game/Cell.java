@@ -16,13 +16,15 @@ public class Cell {
     }
 
     public void getCellNextStateHavingAliveNeighbours(int numberOfAliveNeigbours) {
-        if (cellSate == DEAD && numberOfAliveNeigbours == 3) {
-            cellSate = ALIVE;
-        } else if (!isCellHasOverPopulatedORUnderPopulatedNeighbourHood(numberOfAliveNeigbours)) {
+        if (isReproductionPossible(numberOfAliveNeigbours) || !isCellHasOverPopulatedORUnderPopulatedNeighbourHood(numberOfAliveNeigbours)) {
             cellSate = ALIVE;
         } else {
             cellSate = DEAD;
         }
+    }
+
+    private boolean isReproductionPossible(int numberOfAliveNeigbours) {
+        return cellSate == DEAD && numberOfAliveNeigbours == 3;
     }
 
     private boolean isCellHasOverPopulatedORUnderPopulatedNeighbourHood(int numberOfAliveNeigbours) {
