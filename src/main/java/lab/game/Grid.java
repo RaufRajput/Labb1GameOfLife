@@ -2,6 +2,8 @@ package lab.game;
 
 import static lab.game.Cell.CellState.ALIVE;
 
+import java.util.List;
+
 public class Grid {
     private Cell[][] cells;
 
@@ -36,7 +38,7 @@ public class Grid {
 
     public int getAliveCount() {
         int count = 0;
-        for (int row = 0; row < cells.length; row++) {
+        for (int row = 0; row < getStateSize(); row++) {
             for (int col = 0; col < cells[row].length; col++) {
                 if (isCellAlive(cells[row][col])) {
                     count++;
@@ -48,5 +50,9 @@ public class Grid {
 
     private boolean isCellAlive(Cell cell) {
         return cell.getCellSate() == ALIVE;
+    }
+
+    public int getAliveCountOf(List<Coordinate> neighbours) {
+    return 0;
     }
 }
