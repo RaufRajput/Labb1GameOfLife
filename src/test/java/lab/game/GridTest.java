@@ -3,7 +3,6 @@ package lab.game;
 import static lab.game.Cell.CellState.ALIVE;
 import static lab.game.Cell.CellState.DEAD;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.in;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -44,7 +43,14 @@ public class GridTest {
         }
 
         public Cell.CellState[][] getState() {
-            return null;
+            Cell.CellState[][] cellStates = new Cell.CellState[state.length][];
+            for (int row = 0; row < state.length; row++) {
+                cellStates[row] = new Cell.CellState[state[row].length];
+                for (int col = 0; col < state[row].length; col++) {
+                    cellStates[row][col] = state[row][col].getCellSate();
+                }
+            }
+            return cellStates;
         }
     }
 }
