@@ -33,10 +33,19 @@ public class CellTest {
     }
 
     @Test
-    //Any live cell with fewer than two live neighbours dies, as if by underpopulation.
+    //Any live cell with two live neighbours dies, as if by underpopulation.
     public void should_be_alive_when_live_cell_has_greater_than_two_alive_neighbours() {
         Cell cell = new Cell(ALIVE);
         int numberOfAliveNeigbours = 2;
+        cell.getCellNextStateHavingAliveNeighbours(numberOfAliveNeigbours);
+        assertThat(cell.getCellSate()).isEqualTo(ALIVE);
+    }
+
+    @Test
+    //Any live cell with two or three live neighbours dies, as if by underpopulation.
+    public void should_be_alive_when_live_cell_has_exactly_two_or_three_alive_neighbours() {
+        Cell cell = new Cell(ALIVE);
+        int numberOfAliveNeigbours = 3;
         cell.getCellNextStateHavingAliveNeighbours(numberOfAliveNeigbours);
         assertThat(cell.getCellSate()).isEqualTo(ALIVE);
     }
