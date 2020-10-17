@@ -16,7 +16,7 @@ public class Cell {
     }
 
     public void getCellNextStateHavingAliveNeighbours(int numberOfAliveNeigbours) {
-        if (numberOfAliveNeigbours >= 2) {
+        if (numberOfAliveNeigbours == 2 || numberOfAliveNeigbours == 3 ) {
             cellSate = ALIVE;
         } else {
             cellSate = DEAD;
