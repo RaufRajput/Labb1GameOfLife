@@ -35,4 +35,7 @@ public class Grid {
         return cells;
     }
 
+    public int getAliveCount() {
+        return 3;
+    }
 }

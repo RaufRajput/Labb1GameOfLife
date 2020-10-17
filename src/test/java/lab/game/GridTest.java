@@ -31,4 +31,18 @@ public class GridTest {
         Cell.CellState[][] state = grid.getCellsState();
         assertThat(state).isEqualTo(input);
     }
+
+    @Test
+    public void should_be_able_determine_number_of_alive_cells() {
+        Cell.CellState[][] input = new Cell.CellState[][]{
+                {O, O, O, O, O, O, O, O},
+                {O, O, O, O, X, O, O, O},
+                {O, O, O, X, X, O, O, O},
+                {O, O, O, O, O, O, O, O}
+        };
+        Grid grid = new Grid(input);
+        int expectedNumberOfAliveCells = 3;
+        int actualAliveCells = grid.getAliveCount();
+        assertThat(actualAliveCells).isEqualTo(expectedNumberOfAliveCells);
+    }
 }
