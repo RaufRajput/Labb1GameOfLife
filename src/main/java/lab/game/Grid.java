@@ -62,7 +62,18 @@ public class Grid {
         return count;
     }
 
-    public void getNextGeneration() {
+    public Grid getNextGeneration() {
 
+        Grid newGrid = new Grid(getCellsState());
+        for (int row = 0; row < cells.length; row++) {
+            for (int col = 0; col < cells[row].length; col++) {
+                Cell cell = cells[row][col];
+                List<Coordinate> neighbours = new Coordinate(row, col).getNeighbours(this);
+                int liveNeighbourCount = getAliveCountOf(neighbours);
+                cell.getCellNextStateHavingAliveNeighbours(liveNeighbourCount);
+                newGrid.getCells()[row][col].setCellSate(cell.getCellSate());
+            }
+        }
+        return newGrid;
     }
 }

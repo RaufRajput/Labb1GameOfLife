@@ -15,6 +15,10 @@ public class Cell {
         return cellSate;
     }
 
+    public void setCellSate(CellState cellSate) {
+        this.cellSate = cellSate;
+    }
+
     public void getCellNextStateHavingAliveNeighbours(int numberOfAliveNeigbours) {
         if (isReproductionPossible(numberOfAliveNeigbours) || (!isCellHasOverPopulatedORUnderPopulatedNeighbourHood(numberOfAliveNeigbours) && cellSate == ALIVE)) {
             cellSate = ALIVE;

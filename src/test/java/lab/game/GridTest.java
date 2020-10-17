@@ -89,7 +89,7 @@ public class GridTest {
                 {O, O, O, O, O, O, O, O}
         };
 
-        grid.getNextGeneration();
-        assertThat(grid.getCellsState()).isEqualTo(expectedGeneration);
+        Grid nextGeneration = grid.getNextGeneration();
+        assertThat(nextGeneration.getCellsState()).isEqualTo(expectedGeneration);
     }
 }
