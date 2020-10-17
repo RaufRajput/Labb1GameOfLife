@@ -76,4 +76,20 @@ public class Grid {
         }
         return newGrid;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder buffer = new StringBuilder();
+        for (Cell[] cell : cells) {
+            for (Cell value : cell) {
+                if (isCellAlive(value)) {
+                    buffer.append("*");
+                } else {
+                    buffer.append(".");
+                }
+            }
+            buffer.append("\n");
+        }
+        return buffer.toString();
+    }
 }
