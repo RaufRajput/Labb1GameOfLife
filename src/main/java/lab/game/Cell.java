@@ -1,12 +1,16 @@
 package lab.game;
 
+
 public class Cell {
-    public CellState cellSate;
+    private CellState cellSate;
 
     public Cell(CellState state) {
         cellSate = state;
     }
 
-    public enum CellState {ALIVE, DEAD}
+    public CellState getCellSate() {
+        return cellSate;
+    }
 
+    public enum CellState {ALIVE, DEAD}
 }

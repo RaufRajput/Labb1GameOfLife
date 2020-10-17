@@ -13,6 +13,6 @@ public class CellTest {
     @Test
     public void should_have_state_live_when_alive() {
         Cell cell = new Cell(ALIVE);
-        assertThat(cell.cellSate).isEqualTo(ALIVE);
+        assertThat(cell.getCellSate()).isEqualTo(ALIVE);
     }
 }
