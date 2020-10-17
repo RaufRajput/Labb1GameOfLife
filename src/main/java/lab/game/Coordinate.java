@@ -1,10 +1,10 @@
 package lab.game;
 
-public class Cordinate {
+public class Coordinate {
     private int row;
     private int col;
 
-    public Cordinate(int row, int col) {
+    public Coordinate(int row, int col) {
         this.row = row;
         this.col = col;
     }
@@ -37,7 +37,7 @@ public class Cordinate {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
 
-        Cordinate that = (Cordinate) obj;
+        Coordinate that = (Coordinate) obj;
 
         if (row != that.row) return false;
         return col == that.col;

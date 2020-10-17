@@ -41,25 +41,25 @@ public class GridTest {
                 {O, O, O, O, O, O, O, O}
         };
         Grid grid = new Grid(input);
-        List<Cordinate> expectedNeigbours = new ArrayList<>();
-        expectedNeigbours.add(new Cordinate(0, 2));
-        expectedNeigbours.add(new Cordinate(0, 3));
-        expectedNeigbours.add(new Cordinate(0, 4));
-        expectedNeigbours.add(new Cordinate(1, 2));
-        expectedNeigbours.add(new Cordinate(1, 4));
-        expectedNeigbours.add(new Cordinate(2, 2));
-        expectedNeigbours.add(new Cordinate(2, 3));
-        expectedNeigbours.add(new Cordinate(2, 4));
-        List<Cordinate> actualNeighbours = grid.getNeigbours(new Cordinate(1, 3), grid);
+        List<Coordinate> expectedNeigbours = new ArrayList<>();
+        expectedNeigbours.add(new Coordinate(0, 2));
+        expectedNeigbours.add(new Coordinate(0, 3));
+        expectedNeigbours.add(new Coordinate(0, 4));
+        expectedNeigbours.add(new Coordinate(1, 2));
+        expectedNeigbours.add(new Coordinate(1, 4));
+        expectedNeigbours.add(new Coordinate(2, 2));
+        expectedNeigbours.add(new Coordinate(2, 3));
+        expectedNeigbours.add(new Coordinate(2, 4));
+        List<Coordinate> actualNeighbours = grid.getNeigbours(new Coordinate(1, 3));
         assertThat(actualNeighbours).hasSameSizeAs(expectedNeigbours);
-        assertThat(new Cordinate(0, 2)).isIn(expectedNeigbours);
-        assertThat(new Cordinate(0, 2)).isIn(expectedNeigbours);
-        assertThat(new Cordinate(0, 3)).isIn(expectedNeigbours);
-        assertThat(new Cordinate(0, 4)).isIn(expectedNeigbours);
-        assertThat(new Cordinate(1, 2)).isIn(expectedNeigbours);
-        assertThat(new Cordinate(1, 4)).isIn(expectedNeigbours);
-        assertThat(new Cordinate(2, 2)).isIn(expectedNeigbours);
-        assertThat(new Cordinate(2, 3)).isIn(expectedNeigbours);
-        assertThat(new Cordinate(2, 4)).isIn(expectedNeigbours);
+        assertThat(new Coordinate(0, 2)).isIn(expectedNeigbours);
+        assertThat(new Coordinate(0, 2)).isIn(expectedNeigbours);
+        assertThat(new Coordinate(0, 3)).isIn(expectedNeigbours);
+        assertThat(new Coordinate(0, 4)).isIn(expectedNeigbours);
+        assertThat(new Coordinate(1, 2)).isIn(expectedNeigbours);
+        assertThat(new Coordinate(1, 4)).isIn(expectedNeigbours);
+        assertThat(new Coordinate(2, 2)).isIn(expectedNeigbours);
+        assertThat(new Coordinate(2, 3)).isIn(expectedNeigbours);
+        assertThat(new Coordinate(2, 4)).isIn(expectedNeigbours);
     }
 }

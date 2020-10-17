@@ -35,15 +35,14 @@ public class Grid {
         return cells;
     }
 
-    public List<Cordinate> getNeigbours(Cordinate inputCellCordinate, Grid grid) {
-        int lastIndex = grid.getStateSize() - 1;
-        List<Cordinate> neighbours = new ArrayList<>();
-        int row = inputCellCordinate.getRow();
-        int col = inputCellCordinate.getCol();
+    public List<Coordinate> getNeigbours(Coordinate inputCellCoordinate) {
+        List<Coordinate> neighbours = new ArrayList<>();
+        int row = inputCellCoordinate.getRow();
+        int col = inputCellCoordinate.getCol();
         for (int xOffset = -1; xOffset < 2; xOffset++) {
             for (int yOffset = -1; yOffset < 2; yOffset++) {
                 if (xOffset != 0 || yOffset != 0) {
-                    neighbours.add(new Cordinate(row + yOffset, col + xOffset));
+                    neighbours.add(new Coordinate(row + yOffset, col + xOffset));
                 }
             }
         }
