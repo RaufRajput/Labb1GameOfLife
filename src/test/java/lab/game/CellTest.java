@@ -1,6 +1,7 @@
 package lab.game;
 
 import static lab.game.Cell.CellState.ALIVE;
+import static lab.game.Cell.CellState.DEAD;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.Test;
@@ -15,4 +16,11 @@ public class CellTest {
         Cell cell = new Cell(ALIVE);
         assertThat(cell.getCellSate()).isEqualTo(ALIVE);
     }
+
+    @Test
+    public void should_have_dead_state_when_dead() {
+        Cell cell = new Cell(DEAD);
+        assertThat(cell.getCellSate()).isEqualTo(DEAD);
+    }
+
 }
