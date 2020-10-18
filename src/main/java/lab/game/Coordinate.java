@@ -3,50 +3,46 @@ package lab.game;
 import java.util.ArrayList;
 import java.util.List;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@Getter
+@AllArgsConstructor
 public class Coordinate {
     private int row;
     private int col;
-
-    public Coordinate(int row, int col) {
-        this.row = row;
-        this.col = col;
-    }
-
-    public int getRow() {
-        return row;
-    }
-
-    public void setRow(int row) {
-        this.row = row;
-    }
-
-    public int getCol() {
-        return col;
-    }
-
-    public void setCol(int col) {
-        this.col = col;
-    }
 
     public List<Coordinate> getNeighbours(Grid grid) {
         List<Coordinate> neighbours = new ArrayList<>();
         Cell[][] cells = grid.getCells();
         int lastRowIndex = cells.length - 1;
-        int lastColumnIndex = cells[0].length -1;
+        int lastColumnIndex = cells[0].length - 1;
         int row = this.getRow();
         int col = this.getCol();
         for (int xOffset = -1; xOffset < 2; xOffset++) {
             for (int yOffset = -1; yOffset < 2; yOffset++) {
-                int newRow = row + yOffset;
-                int newCol = col + xOffset;
-                if ((xOffset != 0 || yOffset != 0) && (newRow >-1 && newCol > -1) && (newRow <= lastRowIndex && newCol <=lastColumnIndex )) {
-                    neighbours.add(new Coordinate(newRow, newCol));
-                }
+                addNeigbours(neighbours, lastRowIndex, lastColumnIndex, row, col, xOffset, yOffset);
             }
         }
 
         return neighbours;
 
+    }
+
+    private void addNeigbours(List<Coordinate> neighbours, int lastRowIndex, int lastColumnIndex, int row, int col, int xOffset, int yOffset) {
+        int newRow = row + yOffset;
+        int newCol = col + xOffset;
+        if (isNotTheSameCell(xOffset, yOffset) && isNotOutOfMatrix(lastRowIndex, lastColumnIndex, newRow, newCol)) {
+            neighbours.add(new Coordinate(newRow, newCol));
+        }
+    }
+
+    private boolean isNotOutOfMatrix(int lastRowIndex, int lastColumnIndex, int newRow, int newCol) {
+        return (newRow > -1 && newCol > -1) && (newRow <= lastRowIndex && newCol <= lastColumnIndex);
+    }
+
+    private boolean isNotTheSameCell(int xOffset, int yOffset) {
+        return xOffset != 0 || yOffset != 0;
     }
 
     @Override

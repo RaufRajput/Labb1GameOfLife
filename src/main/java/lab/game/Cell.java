@@ -4,20 +4,15 @@ package lab.game;
 import static lab.game.Cell.CellState.ALIVE;
 import static lab.game.Cell.CellState.DEAD;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+@AllArgsConstructor
 public class Cell {
     private CellState cellSate;
-
-    public Cell(CellState state) {
-        cellSate = state;
-    }
-
-    public CellState getCellSate() {
-        return cellSate;
-    }
-
-    public void setCellSate(CellState cellSate) {
-        this.cellSate = cellSate;
-    }
 
     public void getCellNextStateHavingAliveNeighbours(int numberOfAliveNeigbours) {
         if (isReproductionPossible(numberOfAliveNeigbours) || (!isCellHasOverPopulatedORUnderPopulatedNeighbourHood(numberOfAliveNeigbours) && cellSate == ALIVE)) {
