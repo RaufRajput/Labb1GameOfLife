@@ -10,10 +10,7 @@ import java.util.List;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.JUnit4;
 
-@RunWith(JUnit4.class)
 public class GridTest {
 
 
@@ -31,7 +28,7 @@ public class GridTest {
         };
         Grid grid = new Grid(input);
         Cell.CellState[][] state = grid.getCellsState();
-        Assert.assertArrayEquals(input,state);
+        Assert.assertArrayEquals(input, state);
 
     }
 
@@ -46,7 +43,7 @@ public class GridTest {
         Grid grid = new Grid(input);
         int expectedNumberOfAliveCells = 3;
         int actualAliveCells = grid.getAliveCount();
-        assertEquals(expectedNumberOfAliveCells,actualAliveCells);
+        assertEquals(expectedNumberOfAliveCells, actualAliveCells);
     }
 
     @Test
@@ -72,7 +69,7 @@ public class GridTest {
         int expectedNumberOfAliveNeigbours = 5;
 
         int aliveCountOf = grid.getAliveCountOf(neighbours);
-        Assert.assertEquals(expectedNumberOfAliveNeigbours,aliveCountOf);
+        Assert.assertEquals(expectedNumberOfAliveNeigbours, aliveCountOf);
     }
 
     @Test
@@ -93,7 +90,7 @@ public class GridTest {
         };
 
         Grid nextGeneration = grid.getNextGeneration();
-        assertArrayEquals(expectedGeneration,nextGeneration.getCellsState());
+        assertArrayEquals(expectedGeneration, nextGeneration.getCellsState());
     }
 
     @Test
@@ -114,6 +111,6 @@ public class GridTest {
         };
 
         Grid nextGeneration = grid.getNextGeneration();
-        assertArrayEquals(expectedGeneration,nextGeneration.getCellsState());
+        assertArrayEquals(expectedGeneration, nextGeneration.getCellsState());
     }
 }
