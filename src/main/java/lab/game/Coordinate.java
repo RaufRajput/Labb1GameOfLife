@@ -9,8 +9,8 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public class Coordinate {
-    private int row;
-    private int col;
+    private final int row;
+    private final int col;
 
     public List<Coordinate> getNeighbours(Grid grid) {
         List<Coordinate> neighbours = new ArrayList<>();
@@ -59,7 +59,6 @@ public class Coordinate {
 
         Coordinate that = (Coordinate) obj;
 
-        if (row != that.row) return false;
-        return col == that.col;
+        return row == that.row && col == that.col;
     }
 }
